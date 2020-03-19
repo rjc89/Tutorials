@@ -1,0 +1,514 @@
+//https://www.youtube.com/watch?v=vLnPwxZdW4Y&t=9128s
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+int user_input(){
+    
+    int age;
+    cout << "enter you age: ";
+    cin >> age;
+    cout << "You are "<< age<< " years old";
+    
+    string name;
+    getline(cin, name);
+    cout << "hello "<< name;
+    return 0;
+}
+
+int calculator(){
+    int num1;
+    int num2;
+    cout << "enter first number: ";
+    cin >> num1;
+    cout << "enter 2nd number: ";
+    cin >> num2;
+    cout << "answer ="<<num1+num2<<"\n";
+    
+    return 0;
+}
+
+int maths()
+{
+    cout << 10 + 7<<endl;
+    string phrase = "giraffe heads";
+    phrase[0] = 'Z';
+    string phrasesub;
+    phrasesub = phrase.substr(5, 4);
+    cout << phrase.length()<<"\n";
+    cout << phrase[0]<<"\n";
+    cout << phrase.find("heads", 0)<<"\n";
+    cout << phrase.substr(5, 4)<<"\n";
+    cout << phrasesub<<"\n";
+    
+    int wnum = 5;
+    double dnum = 5.5;
+    cout << wnum <<"\n";
+    wnum++;
+    cout << wnum <<"\n";
+    wnum--;
+    cout << wnum << "\n";
+    wnum += 80;
+    cout << wnum << "\n";
+    cout << 10 / 3 << "\n";
+    cout << 10.0 / 3.0 << "\n";
+    
+    cout << pow(2, 5)<<"\n";
+    cout << sqrt(32)<< "\n";
+    cout << round(3.2342)<< "\n";
+    cout << floor(3.8)<<"\n";
+    cout << ceil(3.8)<<"\n";
+    cout << fmax(3, 10)<<"\n";
+    cout << fmin(3, 10)<<"\n";
+    user_input();
+    //    maths();
+    return 0;
+}
+
+int madlibs(){
+    string color, pluralNoun, celebrity;
+    cout << "type in color";
+    getline(cin, color);
+    cout<< "type in a plural noun";
+    getline(cin, pluralNoun);
+    cout<<"type in a celebrities name";
+    getline(cin, celebrity);
+    
+    cout << "roses are"<<color<< endl;
+    cout << pluralNoun<<" are blue"<< endl;
+    cout << "i love "<<celebrity<< endl;
+    return 0;
+}
+
+int arraypractise(){
+    int LuckyNums[] = {4,6,7,8,89,2};
+    LuckyNums[2] = 42069;
+    cout <<LuckyNums[2]<<"\n";
+    int unknownnums[20];
+    unknownnums[0] = 42069;
+    cout<<unknownnums[0]<<"\n";
+    return 0;
+}
+
+//void sayhi(string name, int age){
+//    // void doesn't return anything
+//    cout << "hello "<<name<<" you are "<<age<<"\n";
+//}
+
+void sayhi(string name, int age);
+
+double cube(double num){
+    return num * num * num;
+}
+
+void IfElifElse(){
+    bool isMale = false;
+    bool isTall = true;
+    if (isMale && isTall){
+        cout << "you are a tall male" << endl;
+    }
+    else if (isMale || isTall){
+        cout << "you are either male or tall"<<endl;
+    }
+    else if (!isMale && isTall){
+        cout << "bitch you short"<<endl;
+    }
+    else {
+        cout << "you are not male"<< endl;
+    }
+}
+
+void greet(){
+    string greet = "hello world!";
+    cout << greet;
+}
+
+int getMax(int num1, int num2, int num3){
+    int result;
+    if (num1 >= num2 && num1 >= num3){
+        result = num1;
+    }
+    else if(num2 >= num1 && num2 >= num3){
+        result = num2;
+    }
+    else{
+        result = num3;
+    }
+    cout << result<<endl;
+    return result;
+}
+
+int betterCalculator(){
+    int num1, num2;
+    char op;
+    int result;
+    cout << "enter first number"<<endl;
+    cin>> num1;
+    
+    cout << "enter operator "<<endl;
+    cin>> op;
+    
+    cout << "enter 2nd number"<<endl;
+    cin>> num2;
+    
+    if (op == '+'){
+        result = num1 + num2;
+    }else if (op == '-'){
+        result = num1 - num2;
+    }else if (op == '/'){
+        result = num1 / num2;
+    }else if (op == '*'){
+        result = num1 * num2;
+    }else{
+        cout << "invalid operator"<< endl;
+    }
+
+    cout << result<< endl;
+    
+    return 0;
+}
+
+string getdayofWeek(int dayNum){
+    string dayName;
+    switch(dayNum){
+        case 0 :
+            dayName = "sunday";
+            break;
+        case 1 :
+            dayName = "monday";
+            break;
+        case 2 :
+            dayName = "tuesday";
+            break;
+        case 3 :
+            dayName = "wed";
+            break;
+        case 4 :
+            dayName = "thurs";
+            break;
+        case 5 :
+            dayName = "fri";
+            break;
+        case 6 :
+            dayName = "sat";
+            break;
+        default:
+            dayName = "invalid day name number";
+    }
+    cout << dayName<<endl;
+    return dayName;
+}
+
+int whileLoops(){
+    int index = 1;
+    while(index <= 5){
+        cout << index << endl;
+        index ++;
+        
+    }
+    return 0;
+}
+
+int doWhileLoop(){
+    int index = 0;
+    do{
+        cout << index << endl;
+        index ++;
+        
+    }while (index < 5);
+    return 0;
+}
+
+int guessingGame(){
+    int secretNum = 7;
+    int guess;
+    int guessCount = 0;
+    int guessLimit = 3;
+    bool outofGuesses = false;
+    
+    while(secretNum != guess && !outofGuesses){
+        if (guessCount < guessLimit){
+        cout << "enter guess: "<<endl;
+        cin >> guess;
+        guessCount ++;
+        }else{
+            outofGuesses = true;
+        }
+        
+    }
+    if (outofGuesses){
+        cout << "you lose baby"<< endl;
+    }else{
+        cout << "You a Winner!"<< endl;}
+    return 0;
+}
+
+int doGuessingGame(){
+    int secretNumba = 7;
+    int guesss;
+    do{
+        cout << "enter guess: "<< endl;
+        cin >> guesss;
+    }
+    while (secretNumba != guesss);
+    cout << "you a winner!"<< endl;
+    return 0;
+}
+
+int forLoop(){
+    int index = 1;
+    int nums [] = {77,22,37,421,522,62,6};
+//    while (index <= 5){
+//        cout << index << endl;
+//        index ++;
+//    }
+    for (int i = 0; i < 6; i++){
+        cout << nums[i] << endl;
+    }
+    return 0;
+}
+
+int exponent(int baseNum, int powNum){
+    int result = 1;
+    for (int i = 0; i < powNum; i++){
+        result = result * baseNum;
+    }
+    return result;
+}
+
+
+int nestedArrays(){
+    int numberGrid [3][2] = {{1,2},{3,4},{4,7}};
+//    cout << numberGrid[0][1]<< endl;
+    
+    for (int i = 0; i < 3; i++){
+        for(int j = 0; j < 2; j++){
+            cout << numberGrid[i][j] << endl;
+        }
+//        cout << endl;
+    }
+    return 0;
+}
+
+int comments(){
+    /*
+     all of this after the opening tag is a coment
+     
+     skdjfosjdfo
+     
+     */
+    return 0;
+    
+}
+
+int pointersBaby(){
+    int age = 22;
+    int *pAge = &age;
+    double gpa = 2.7;
+    double *pGpa = &gpa;
+    string name = "Methusela";
+    string *pName = &name;
+    
+    cout << &age << endl; // & prints the pointer (memory address) of the object
+    cout << pAge << endl; // printing the address
+    cout << *pAge << endl; // de-referencing the pointer, giving you the value stored at that address
+    cout << &*pAge << endl; // get the pointer again
+    return 0;
+}
+
+int classesANDobjects(){
+    string name = "nathaniel";
+    double pi = 3.14;
+    char favLetter = 'g';
+    
+    return 0;
+}
+
+// A class is like defining a new data type. Specifying attributes of a class.
+
+class Book {
+public:
+    string title;
+    string author;
+    int pages;
+// a constructor function is used to efficiently create new class objects
+    Book (string aTitle, string aAuthor, int aPages){
+        title = aTitle;
+        author = aAuthor;
+        pages = aPages;
+        
+    }
+// multiple constructors can be used, to give the user multiple ways to create an object from the class
+    Book (){
+        title = "no title";
+        author = "no author";
+        pages = 0;
+    }
+};
+
+// an object is an instance of a class
+int bookClassObject(){
+    Book book1("harry p", "JK Rowling", 800);
+//    book1.title = "Harry Potter";
+//    book1.author = "JK Rowling";
+//    book1.pages = 800;
+    
+    cout << book1.pages << endl;
+    
+    Book book2("lord of the ringpiece", "Tolkein", 790);
+//    book2.title = "Lord of the Rings";
+//    book2.author = "Tolkein";
+//    book2.pages = 790;
+    cout << book2.author << endl;
+    
+    Book book3;
+    cout << book3.author << endl;
+    
+    return 0;
+}
+
+
+
+class Student{
+    public:
+    string name;
+    string major;
+    double gpa;
+    Student(string aName, string aMajor, double aGpa){
+        name = aName;
+        major = aMajor;
+        gpa = aGpa;
+    }
+// Object functions are applied to each instance of the class it is called on
+    bool hasHonors(){
+        if (gpa >= 3.5){        // if you want to change the threshold, you can easily update it
+            return true;
+        }
+        return false;
+    }
+    
+};
+
+int Students(){
+    Student student1("Joe", "biologie", 2.8);
+    Student student2("Joey", "Film", 3.7);
+    cout << student1.hasHonors()<<endl;
+    cout << student2.hasHonors()<<endl;
+    return 0;
+}
+
+// Getters & Setters
+class Movie {
+    
+// use private/public to control access to clas attributes
+private:
+    string rating;
+    
+public:
+    string title;
+    string director;
+//    string rating;
+    // constructor
+    Movie(string aTitle, string aDirector, string aRating){
+        title = aTitle;
+        director = aDirector;
+        setRating(aRating);
+    }
+    void setRating(string aRating){
+        if (aRating == "G" || aRating == "PG" || aRating == "R" || aRating == "NR"){
+            rating = aRating;
+        }else{
+            rating = "NR";
+        }
+    }
+    string getRating(){
+        return rating;
+    }
+};
+
+    
+int Movies (){
+    Movie avengers("The Avengers", "Joss Whedon", "PG-13");
+//    cout << avengers.rating<< endl;
+    avengers.setRating("dog");
+    cout << avengers.getRating()<< endl;
+    return 0;
+}
+
+
+// Inheritance
+
+class Chef {
+public:
+    void makeChicken(){
+        cout << "The chef makes chicken" << endl;
+    }
+    void makeSalad(){
+        cout << "The chef makes salad" << endl;
+    }
+    void makeSpecialDish(){
+        cout << "the chef make a bbq ribs" << endl;
+    }
+};
+
+// The ItalianChef class can now inherit all the functions/methods of the Chef class
+class ItalianChef : public Chef {
+public:
+    void makePasta(){
+        cout << "make pasta" << endl;
+    }
+    void makeSpecialDish(){
+        cout << "the chef makes a spicey meatball" << endl;
+    }
+};
+
+int chefInstance(){
+    Chef chef;
+    chef.makeChicken();
+    chef.makeSpecialDish();
+    
+    ItalianChef italianChef;
+    italianChef.makeChicken();
+    italianChef.makePasta();
+    italianChef.makeSpecialDish();
+    return 0;
+}
+
+int main() {
+    chefInstance();
+//    Movies();
+//    Students();
+//    bookClassObject();
+//    pointersBaby();
+//    nestedArrays();
+//    cout<< exponent(2,3) << endl;
+//    forLoop();
+//    doGuessingGame();
+//    guessingGame();
+//    doWhileLoop();
+//    whileLoops();
+//    getdayofWeek(4);
+//    betterCalculator();
+//    getMax(2, 42069, 10 );
+//    greet();
+//    IfElifElse();
+//    madlibs();
+//    calculator();
+//    arraypractise();
+    
+//    sayhi("Mike", 27);
+//    sayhi("Mike", 27);
+//    sayhi("Mike", 27);
+//    cout<<cube(5.0)<<endl;
+//
+//
+//    return 0;
+//    cout<<"nothing after the return is run"<<endl;
+}
+
+
+void sayhi(string name, int age){
+    // void doesn't return anything
+
+    cout << "hello "<<name<<" you are "<<age<<"\n";
+}
